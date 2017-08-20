@@ -1,0 +1,56 @@
+@mixin hide_print_span ()
+{
+    border:none;
+    background-color: #fff;
+    color:#fff;
+}
+
+@media print {
+    table.dane {
+        
+        td {
+            
+            p:first-of-type {
+                 margin:0.3cm 0 0.2cm 0;
+            }
+            span {
+                @include hide_print_span();
+            }
+            
+            &.nabywca {
+                @include hide_print_span();
+            }
+        }
+    }
+    
+    table.towar {
+        
+        th {
+            @include hide_print_span();
+        }
+        td {
+            border:none;
+            
+            &.razem {
+                color:#fff;
+            } 
+        }
+        tr {
+            border:none;
+            
+            &.last-of-type {
+                border:none;
+                
+            }
+        }
+    }
+    
+    .slownie, .oswiadczenie {
+        color:#fff;
+    }
+    
+    table.podpisy {
+        display: none;
+    }
+                
+}

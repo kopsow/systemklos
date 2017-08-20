@@ -1,0 +1,168 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css" />
+        <link rel="stylesheet" href="<? echo $this->basePath('/css/faktura.css') ?>" />
+       
+    </head>
+    <body>
+        <table class="dane">
+            <tr style=" border-spacing: 500px !important;">
+                <td style="width:7.9cm">
+                    <span >FAKTURA VAT RR</span>
+                    <p class="center"><? echo $this->numer_faktury ?></p>
+                </td>
+                <td style="width:0.9cm;border:none"></td>
+                <td style="width:8.2cm;">               
+                   <span>miejscowość, data wystawienia</span>
+                    <p class="center" ><? echo $this->data_wystawienia ?></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Termin zapłaty</span>
+                    <p  class="center">
+                        <? echo $this->termin_zaplaty ?>
+                    </p>
+                </td>
+                <td style="width:0.9cm;border:none"></td>
+                <td>
+                    <span>Data zakupu</span>
+                    <p  class="center">
+                       <? echo $this->data_zakupu ?>
+                    </p>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="sprzedawca">
+                    <span>SPRZEDAWCA - ROLNIK RYCZAŁTOWY</span>
+                    <p>
+                        <? echo $this->sprzedawca_nazwa ?>
+                    </p>
+                    <p>
+                        <? echo $this->sprzedawca_adres ?>
+                    </p>
+                    <p>
+                       <? echo $this->sprzedawca_kod_pocztowy ?>
+                    <p>
+                        <strong>NIP/PESEL:</strong> <? echo $this->sprzedawca_nip_pesel ?>
+                    </p>
+                    <p>
+                        <strong>Dowód osobisty:</strong> <? echo $this->sprzedawca_dowod_numer ?> 
+                    </p>
+                    <p>
+                        <strong>Wydany dnia: </strong><? echo $this->sprzedawca_dowod_wydany ?>
+                    </p>
+                    <p>
+                        <strong>przez </strong><? echo $this->sprzedawca_dowod_przez ?>
+                    </p>
+                    <p>
+                        <strong>Nr. rachunku</strong> <? echo $this->sprzedawca_nr_rachunku ?>
+                    </p>
+                </td>   
+                <td style="width:0.9cm;border:none"></td>
+                <td class="nabywca">
+                    <span>NABYWCA</span>
+                    <p>
+                        PPHU KRZYSZTOF DYMEK
+                    </p>
+                    <p>
+                        Zawady, Częstochowska 25
+                    </p>
+                    <p>
+                        42-110 Popów
+                    </p>
+                    <p>
+                        <strong>NIP:</strong> 508-00-65-380
+                        
+                    </p>
+                    <p>
+                        <strong>REGON:</strong> 100742075
+                    </p>
+                    <p>
+                        <strong>TELEFON:</strong> 667481041
+                    </p>
+                </td>   
+            </tr>
+            
+        </table>
+        
+        <table class="towar">
+            <tr>
+                <th>L.p.</th>
+                <th>Nazwa towaru</th>
+                <th>Klasa</th>
+                <th>J.m.</th>
+                <th>Ilość</th>
+                <th>Cena jedn. bez kwoty zryczałt. zwrotu podatku</th>
+                <th>Wartość bez kwoy zrycałt. zwrotu podatku</th>
+                <th><strong>Stawka</strong> zryczałt. zwrotu podatku</th>
+                <th>Kwota zryczałt. zwrotu podatku</th>
+                <th>Wartość towaru wraz z kwotą zryczałt. zwrotu podatku</th>
+            </tr>
+            
+           <? for ($i = 1 ; $i < 6 ; $i++) :?>
+            <tr>
+                <? if($this->towar) : ?>
+                    
+                    <? foreach($this->towar as $value) :?>
+                        <td><? echo $value[$i-1]['lp']?></td>
+                        <td><? echo $value[$i-1]['nazwa']?></td>
+                        <td><? echo $value[$i-1]['klasa']?></td>
+                        <td><? echo $value[$i-1]['jm']?></td>
+                        <td><? echo $value[$i-1]['ilosc']?></td>
+                        <td><? echo $value[$i-1]['cena_jed']?></td>
+                        <td><? echo $value[$i-1]['wartosc_bez_podatku']?></td>
+                        <td><? echo $value[$i-1]['stawka_podatku']?></td>
+                        <td><? echo $value[$i-1]['kwota_zwrotu_podatku']?></td>
+                        <td><? echo $value[$i-1]['wartosc_z_podatkiem']?></td>
+                    <? endforeach; ?>
+                <? else :?>
+                        <? for($x = 0 ;$x <10 ; $x++) :?>
+                            <td>X</td>
+                        <? endfor;?>
+                <? endif;?>
+                    
+            </tr>
+            <? endfor; ?>
+            <tr>
+                <td colspan="6" class="razem"><strong>RAZEM</strong></td>
+                <td>12000</td>
+                <td>7%</td>
+                <td>840</td>
+                <td>12840</td>
+            </tr>
+        </table>
+        
+        <p class="slownie">Słownie:..............................................................................................................................................................................</p>
+        <p class="oswiadczenie">
+            "Oświadczam, że jestem rolnikiem ryczałtowym zwolnionym od podatku od towarów i usług na podstawie art. 43 ust. 1 pkt. 3 ustawy o podatku od towarów i usług."
+        </p>
+        <table class="podpisy">
+            <tr>
+                <td style="width:7.9cm">
+                    .............................<br />
+                    <p>Imię, nazwisko</p>
+                </td>
+                <td style="width:0.9cm;border:none"></td>
+                <td style="width:8.2cm">     
+                    _______________________________ <br />
+                    <p>(Podpis os. uprawnionej do odbioru faktury)</p>
+                </td>
+            </tr>
+             <tr>
+                <td style="width:7.9cm">
+                    .............................<br />
+                    <p>Imię, nazwisko</p>
+                </td>
+                <td style="width:0.9cm;border:none"></td>
+                <td style="width:8.2cm">     
+                    _______________________________ <br />
+                    <p>(Podpis os. uprawnionej do wystawienia faktury)</p>
+                </td>
+            </tr>
+        </table>
+      
+    </body>
+</html>

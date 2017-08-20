@@ -1,0 +1,32 @@
+@media print {
+  table.dane td p:first-of-type {
+    margin: 0.3cm 0 0.2cm 0; }
+  table.dane td span {
+    border: none;
+    background-color: #fff;
+    color: #fff; }
+  table.dane td.nabywca {
+    border: none;
+    background-color: #fff;
+    color: #fff; }
+
+  table.towar th {
+    border: none;
+    background-color: #fff;
+    color: #fff; }
+  table.towar td {
+    border: none; }
+    table.towar td.razem {
+      color: #fff; }
+  table.towar tr {
+    border: none; }
+    table.towar tr.last-of-type {
+      border: none; }
+
+  .slownie, .oswiadczenie {
+    color: #fff; }
+
+  table.podpisy {
+    display: none; } }
+
+/*# sourceMappingURL=print_data.css.map */

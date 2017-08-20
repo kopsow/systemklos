@@ -1,0 +1,111 @@
+@import "klasy.scss";
+
+@page { margin: 0; }
+            
+            body { margin: 2.2cm  2.2cm  1cm  2.2cm; }
+            
+           
+            table.dane {
+                border-collapse: separate; 
+                border-spacing: 0 0.5cm; 
+                
+                tr {
+                    border:1px solid #000;                
+                    padding: 0;
+                    vertical-align: top;
+                }
+                
+                td {
+                    min-height: 3.5cm;
+                    max-height: 3.5cm;
+                    
+                    span {
+                        background-color: lightgray;
+                        display: block;
+                        padding:0.1cm;
+                        text-align: center;
+                        font-weight: bolder;
+                        border-bottom:0.5px solid #000;
+                        font-size: 14px;                       
+                        
+                    }
+                    
+                    p {
+                        display: block !important;
+                        padding:  0cm !important;
+                        margin:0.2cm 0 0.2cm 0;
+                        font-size: 12px;
+                    }
+                    
+                    &.sprzedawca {
+                         height: 5cm;
+                    }
+                    
+                }
+            }           
+            
+            table.towar {
+                
+                th,tr,td {
+                    border-collapse: separate;
+                    border:1px solid #000;
+                }
+                
+                td {                    
+                    vertical-align: middle;
+                    text-align: center;
+                    height: 1.3cm;
+                    max-width: 0.9cm;
+                    min-width: 0.9cm;
+                                        
+                }
+                
+                th {
+                    vertical-align: middle; 
+                    font-size: 10px;
+                    background-color: lightgrey;
+                    
+                    &:nth-child(1)
+                        {
+                         width: 0.9cm;
+                    }
+                    
+                    @for $i from 1 through 10 {
+                        &:nth-child(#{$i}){
+                            
+                            @if($i == 1)    {max-width: 0.9cm;}
+                            @if($i == 2)    {width: 3.4cm;}
+                            @if($i == 3)    {width: 1.4cm;}
+                            @if($i == 4)    {width: 1cm;}
+                            @if($i == 5)    {width: 1.2cm;}
+                            @if($i == 6)    {width: 2.1cm;}
+                            @if($i == 7)    {width: 1.9cm;}
+                            @if($i == 8)    {width: 1.2cm;}
+                            @if($i == 9)    {width: 1.7cm;}
+                            @if($i == 10)   {width: 2.2cm;}
+                            
+                        }
+                    }
+                }  
+                .razem {
+                    border-left: 1px solid #fff;
+                    border-bottom: 1px solid #fff;
+                    text-align: right;
+                    padding-right: 1em;
+                }
+                
+                
+            }  
+           
+            
+            table.podpisy {
+                border-collapse: separate; 
+                border-spacing: 0 1cm; 
+                
+                td {
+                    border:none;
+                    text-align: center;
+                }
+            }
+
+           @import "print_data.scss";
